@@ -5,9 +5,9 @@ Fork this repository once per project. The fork tracks the code and the document
 Follow the [final project lab](https://vsokolov.org/labs/final-project-lab.html) from the question through the decision to the short presentation. The strawberry harvest on that page is the worked example. Your project is your own hypothesis, your own data, and a decision someone will make differently because of the model. `CHECKLIST.md` is the lab's "In your project" boxes. The ticks on the lab page are saved in that browser only. `CHECKLIST.md` is the list that counts.
 
 ## Who
-Praveenbalaji Gopalan - ponyta3
-Steven Song - stevens0ng
-Abinash Vasudevan - abinashvasudev
+Praveenbalaji Gopalan (ponyta3),
+Steven Song (stevens0ng),
+Abinash Vasudevan (abinashvasudev)
 
 Alone, or a group of at most three. One person forks. That person adds the other members and `VadimSokolov` as collaborators. On a repository owned by a personal account the role is Write. On the fork, write the names and GitHub usernames under this heading. One person speaks at the presentation. Every member can explain the whole repository.
 
