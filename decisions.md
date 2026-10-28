@@ -2,9 +2,9 @@
 
 This file is the history of the project. Append an entry when a choice changes the work: the quantity, the data, the split, the model, the loss, or the action. Leave old entries in place. A later entry can reverse an earlier one. If a result depends on a random draw, record the seed under Why. The split entry records the cutoff date, or the seed and the fraction. The pull request that merges the code names this entry.
 
-## YYYY-MM-DD: short title
+## 2026-10-26: Proposal: 90th-percentile Midtown-to-JFK taxi time
 
-- Decision. What you chose.
-- Why. The evidence.
-- Alternative. What you rejected.
-- Revisit. What would change the choice.
+- Decision. Estimate the conditional 90th percentile of metered trip duration, in minutes, for yellow-taxi rides from Midtown (pickup zones 161, 162, 163, 230) to JFK (zone 132), using TLC records from January–March 2024. Compare quantile regression on pickup hour, day of week, and pickup zone against a fixed January 90th-percentile allowance. Fit both on January, calibrate both on February with an additive offset (the 90th percentile of February errors, actual minus predicted), freeze both, and score them on March. Score with quantile loss L(B, T) = 0.9 max(T − B, 0) + 0.1 max(B − T, 0). The primary outcome is March mean quantile loss. A 95% target is a sensitivity analysis.
+- Why. A traveler reserving time for the road to the airport loses more by arriving late than by waiting at the gate, so the allowance should be an upper quantile, not an average. The 0.9/0.1 weights make a minute short count nine times a minute of unused padding. A preliminary download checked 24 October 2026 found 21,725 positive-duration candidate trips, enough for one month to fit and one month each to calibrate and test. The split runs forward in time, so March is never seen before scoring. Predictors are limited to what is known before departure.
+- Alternative. Predicting mean or median trip duration with squared or absolute error. Rejected because a central estimate is late about half the time, and that is the costly mistake. Also rejected: using trip distance, fare, tips, or drop-off time as predictors (not known before departure), and dropping the 37 rides over six hours because they hurt performance (they will be investigated and handled in a sensitivity analysis instead).
+- Revisit. If February calibration cannot bring either method near 90% coverage, or if coverage differs sharply across departure periods, reconsider the predictors or the quantile. If investigating the duplicates and long rides changes the sample materially, record a new entry for the data. If the fixed allowance wins on March, report that result; do not change the method after seeing March.
