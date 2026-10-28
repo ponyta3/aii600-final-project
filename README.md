@@ -59,6 +59,8 @@ Leave the data files out of git. A file you are allowed to republish goes on the
 
 R or Python. Use the language you can explain. AI assistants are allowed. On your fork, add one line to this README: what you used, and for what. You are responsible for everything on `main`, including the parts you did not write.
 
+We used ChatGPT and Claude to brainstorm and compare project ideas, review proposal wording, and assist with GitHub workflow instructions.
+
 ## Files
 
 - `PROPOSAL.md`. The proposal. Replace the prompts. Leave the headings.
