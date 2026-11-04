@@ -1,6 +1,5 @@
 # Third-party libraries imported by analysis.ipynb.
-# Versions verified in the local AII 600 Python 3.14.10 notebook environment.
-# Coordinate .python-version (currently specified by the team) before merging.
+# Versions verified with Python 3.14.10.
 pandas==3.1.0
 pyarrow==26.0.0
 matplotlib==3.11.2
