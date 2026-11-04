@@ -11,7 +11,7 @@ This file is the history of the project. Append an entry when a choice changes t
 
 ## 2026-11-01: Initial January data check
 
-- Decision. Add data_check_steven.ipynb and fig/january_duration_histogram.png to document the initial January data check. Retain flagged records pending investigation.
+- Decision. Document the initial January 2024 Midtown-to-JFK data check in `analysis.ipynb` (Data section), with the histogram saved as `fig/january_duration_histogram.png`. Display durations from 0–150 minutes for readability while retaining the 20 trips (0.29%) beyond that range in the complete data and summary statistics. Retain flagged records pending investigation.
 - Why. The selected sample contains 6,885 trips, with a median duration of 49.98 minutes and a 90th percentile of 71.18 minutes. There are 13 records over six hours and 110 rows in possible duplicate groups. These need investigation before modeling.
 - Alternative. Automatically remove long trips and possible duplicates. Deferred because these flags alone do not establish which records are erroneous.
 - Revisit. Agree on and document the treatment of questionable records before fitting the baseline and model. February remains the calibration period, and March remains the final test period.
