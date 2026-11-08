@@ -33,10 +33,10 @@ CANDIDATES = [
     ("2024-03-06", "R3", False, "Heavy rain", "Flood Watch and Flood Advisory only (" + IEM + ")"),
     ("2024-03-07", "R3", False, "Heavy rain", "Flood Watch only (" + IEM + ")"),
     ("2024-03-10", "R3", False, "Coastal Flood Warning (Queens)", "coastal flood is not an R3 type (" + IEM + ")"),
-    ("2024-03-16", "R2", True, "St Patrick's Day parade", "Fifth Ave 44th-79th St and Madison Ave from 42nd St closed from 11 am (Fox 5, PIX11, NBC New York)"),
-    ("2024-03-17", "R2", True, "NYC Half Marathon", "FDR Drive, 42nd St and Times Square closed (nyc.gov closure list)"),
+    ("2024-03-16", "R2", True, "St Patrick's Day parade", "Fifth Ave 44th-79th St and Madison Ave from 42nd St closed from 11 am; NYPD closure list posted 12:36 pm on 15 Mar (Patch; also Fox 5, PIX11, NBC New York)"),
+    ("2024-03-17", "R2", True, "NYC Half Marathon", "FDR Drive, 42nd St and Times Square closed; closure list published 5:19 pm on 14 Mar (Fox 5; nyc.gov closure list)"),
     ("2024-03-23", "R3", False, "Rain: Flood Watch, Flood Warning", "watch only before the day; flood warning issued 7:50 pm the same day (" + IEM + ")"),
-    ("2024-03-28", "R2", True, "Presidential fundraiser, Radio City", "date public weeks ahead (NBC News); 49th-51st St between Fifth and Sixth Aves closed noon-10 pm (NBC New York, CBS New York)"),
+    ("2024-03-28", "R2", False, "Presidential fundraiser, Radio City", "date public weeks ahead (NBC News), but the earliest closure notice found was published 8:30 am on 28 Mar (Gothamist), after the cut-off; 49th-51st St closed noon-10 pm per later reports (NBC New York, CBS New York, ABC7)"),
     ("2024-03-29", "R1", False, "Good Friday; Auto Show opens at Javits", "not a federal holiday; Javits is outside the four zones"),
 ]
 
