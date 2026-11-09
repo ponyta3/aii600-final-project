@@ -36,5 +36,5 @@ If a hash differs, TLC has replaced the file. Record the new hash and a `decisio
 
 - Unit of observation: one recorded yellow-taxi trip from pickup zone 161, 162, 163, or 230 (Midtown Center, Midtown East, Midtown North, Times Sq/Theatre District) to drop-off zone 132 (JFK Airport).
 - Time span: January through March 2024, by meter-start time.
-- Sample size: 21,725 positive-duration candidate trips, from a preliminary download checked 24 October 2026. This count includes duplicate candidates and 37 rides over six hours. Exclusions are recorded in `decisions.md`.
+- Sample size: 21,726 records, 21,422 after cleaning (January 6,817; February 6,409; March 8,196). The cleaning rules are in `decisions.md` (2026-11-08) and `taxi.py`.
 - Duration: `tpep_dropoff_datetime` minus `tpep_pickup_datetime`, in minutes.
