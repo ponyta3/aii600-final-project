@@ -1,7 +1,8 @@
 """Load, clean and split the Midtown-to-JFK trips (2026-11-08 entries in decisions.md).
 
-The cleaning rules are the same for all three months. Nothing here looks at March
-beyond the record-quality flags.
+The cleaning rules are the same for all three months. March enters only the record-quality
+flags (durations are computed to find non-positive and over-six-hour records); it is not used
+for fitting, calibration, choosing features, or comparing methods.
 """
 
 import hashlib
