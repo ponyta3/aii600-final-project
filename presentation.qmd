@@ -1,5 +1,6 @@
 ---
-title: "Project title"
+title: "Midtown to JFK by Yellow Taxi: How Many Minutes Should You Allow?"
+subtitle: "Steven Song and Praveenbalaji Gopalan | AII 600 | December 2, 2026"
 format:
   revealjs:
     embed-resources: true
@@ -7,20 +8,72 @@ format:
     slide-number: true
     width: 1280
     height: 720
+    fontsize: 26px
 ---
 
 ## Action
 
-What should be done. Replace this sentence.
+**For an ordinary-day Midtown-to-JFK yellow-taxi ride, reserve the model's conditional 90th-percentile metered road time rather than a fixed 76 minutes.**
+
+- Known before departure: **pickup hour**, **day of week**, **Midtown pickup zone**
+- Rule: predicted 90th percentile **+ 3.83-minute February calibration offset**
+- Estimated allowances span approximately **31–88 minutes**
+- This is **road travel only**, not taxi waiting, airport security, or gate access
 
 ## Reason
 
-Why, in the decision maker's units. The held-out score in `analysis.ipynb` has to agree with this slide.
+**The frozen model had lower loss on held-out March 2024 ordinary-day rides.**
+
+| Decision outcome | Quantile model | Fixed allowance |
+|:--|--:|--:|
+| Mean 0.9/0.1 loss (weighted min/trip) | **2.383** | 3.514 |
+| Mean reserved road time (minutes) | **65.3** | 76.0 |
+
+**32.2% lower decision loss** (difference: **1.131 weighted min/trip**).
+
+- Loss = **0.9 × minutes short + 0.1 × unused minutes**
+- January: **6,194** ordinary-day trips to fit; February: **5,986** to calibrate; March held out
+- Paired 90% day-bootstrap interval for baseline minus model loss: **+0.972 to +1.284 weighted min/trip**
 
 ## Risk
 
-The main risk of the action: a probability or a cost, not the held-out score.
+**The desired 90% coverage was not achieved on March ordinary days.**
+
+- About **17 rides in 100** exceeded the allowance in March, by **8.7 minutes on average when late**.
+- From **4–8 p.m.**, **1 in 4 rides** exceeded the allowance.
+- **Least-trusted assumption:** One February offset fits every hour and carries into March.
+- On **two flagged March days (561 trips)**, coverage fell to **67.4%**, and model loss exceeded the fixed allowance's loss.
+- **Do not use** for flagged days (holidays, announced events, winter storm warnings), other routes, or door-to-gate time.
 
 ## Value
 
-What it is worth to be less wrong, in the units of the loss.
+**How much could better predictions reduce decision loss?**
+
+| Exploratory March hindsight benchmark | Loss reduction (weighted min/trip) |
+|:--|--:|
+| One offset fitted on March | **0.140** |
+| Separate offset by departure period | **0.238** |
+| Model refitted on March | **0.386** |
+| Perfect foresight | **2.383** |
+
+**These are hindsight-only benchmarks, not validated future improvements.**
+
+- **Cost sensitivity:** If a minute late costs 19 times a minute unused, the rule moves to the **95th percentile**, increasing the average allowance by **7.6 minutes**.
+- **Next check:** Recalibrate with newer ordinary-day data, then test on a genuinely later month.
+
+**Decision:** Prefer the frozen model on held-out decision loss, while disclosing the coverage shortfall.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
