@@ -1,5 +1,6 @@
 ---
-title: "Project title"
+title: "Midtown to JFK by Yellow Taxi: How Many Minutes Should You Allow?"
+subtitle: "Steven Song and Praveenbalaji Gopalan | AII 600 | December 2, 2026"
 format:
   revealjs:
     embed-resources: true
@@ -11,16 +12,48 @@ format:
 
 ## Action
 
-What should be done. Replace this sentence.
+**For an ordinary-day Midtown-to-JFK yellow-taxi ride, reserve the model's conditional 90th-percentile metered road time rather than a fixed 76 minutes.**
+
+- Known before departure: **pickup hour**, **day of week**, **Midtown pickup zone**
+- Rule: predicted 90th percentile **+ 3.83-minute February calibration offset**
+- Estimated allowances span approximately **31–88 minutes**
+- This is **road travel only**, not taxi waiting, airport security, or gate access
 
 ## Reason
 
-Why, in the decision maker's units. The held-out score in `analysis.ipynb` has to agree with this slide.
+**The frozen model had lower loss on held-out March 2024 ordinary-day rides.**
+
+| Decision outcome | Quantile model | Fixed allowance |
+|:--|--:|--:|
+| Mean 0.9/0.1 loss (weighted min/trip) | **2.383** | 3.514 |
+| Mean reserved road time (minutes) | **65.3** | 76.0 |
+
+**32.2% lower decision loss** (difference: **1.131 weighted min/trip**).
+
+- Loss = **0.9 × minutes short + 0.1 × unused minutes**
+- January: **6,194** ordinary-day trips to fit; February: **5,986** to calibrate; March held out
+- Paired 90% day-bootstrap interval for baseline minus model loss: **+0.972 to +1.284 weighted min/trip**
 
 ## Risk
 
-The main risk of the action: a probability or a cost, not the held-out score.
+**The desired 90% coverage was *not* achieved on March ordinary days.**
+
+- Actual March model coverage: **82.6%**
+- Coverage from 4–8 p.m.: **75.0%**
+- Least-trusted assumption: travel-time patterns remain stable across months
+- Whole-day resampling reflects related traffic across rides on a day
+- **Do not use as a guarantee** for special events, unexpected disruptions, new routes, or door-to-gate arrival
 
 ## Value
 
-What it is worth to be less wrong, in the units of the loss.
+**Less unnecessary padding, under the stated nine-to-one cost ratio.**
+
+| March ordinary days (per 100 rides) | Quantile model | Fixed allowance |
+|:--|--:|--:|
+| Unused allowance (minutes) | **1,026** | 2,102 |
+| Total late minutes | **151** | 157 |
+
+- A March **hindsight-only** offset adjustment lowered loss by **0.140 weighted min/trip**; it is **not** a validated future improvement
+- **Next check:** recalibrate on newer ordinary-day data and evaluate on a truly later month
+
+**Decision:** prefer the frozen model on held-out decision loss, while clearly disclosing the coverage shortfall.
