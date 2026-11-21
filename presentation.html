@@ -1203,49 +1203,54 @@ margin-right: 0; }
 </section>
 <section id="risk" class="slide level2">
 <h2>Risk</h2>
-<p><strong>The desired 90% coverage was <em>not</em> achieved on March ordinary days.</strong></p>
+<p><strong>The desired 90% coverage was not achieved on March ordinary days.</strong></p>
 <ul>
-<li>Actual March model coverage: <strong>82.6%</strong></li>
-<li>Coverage from 4–8 p.m.: <strong>75.0%</strong></li>
-<li>Least-trusted assumption: travel-time patterns remain stable across months</li>
-<li>Whole-day resampling reflects related traffic across rides on a day</li>
-<li><strong>Do not use as a guarantee</strong> for special events, unexpected disruptions, new routes, or door-to-gate arrival</li>
+<li>About <strong>17 rides in 100</strong> exceeded the allowance in March, by <strong>8.7 minutes on average when late</strong>.</li>
+<li>From <strong>4–8 p.m.</strong>, <strong>1 in 4 rides</strong> exceeded the allowance.</li>
+<li><strong>Least-trusted assumption:</strong> One February offset fits every hour and carries into March.</li>
+<li>On <strong>two flagged March days (561 trips)</strong>, coverage fell to <strong>67.4%</strong>, and model loss exceeded the fixed allowance’s loss.</li>
+<li><strong>Do not use</strong> for flagged days (holidays, announced events, winter storm warnings), other routes, or door-to-gate time.</li>
 </ul>
 </section>
 <section id="value" class="slide level2">
 <h2>Value</h2>
-<p><strong>Less unnecessary padding, under the stated nine-to-one cost ratio.</strong></p>
+<p><strong>How much could better predictions reduce decision loss?</strong></p>
 <table class="caption-top">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 50%">
+<col style="width: 50%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">March ordinary days (per 100 rides)</th>
-<th style="text-align: right;">Quantile model</th>
-<th style="text-align: right;">Fixed allowance</th>
+<th style="text-align: left;">Exploratory March hindsight benchmark</th>
+<th style="text-align: right;">Loss reduction (weighted min/trip)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Unused allowance (minutes)</td>
-<td style="text-align: right;"><strong>1,026</strong></td>
-<td style="text-align: right;">2,102</td>
+<td style="text-align: left;">One offset fitted on March</td>
+<td style="text-align: right;"><strong>0.140</strong></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Total late minutes</td>
-<td style="text-align: right;"><strong>151</strong></td>
-<td style="text-align: right;">157</td>
+<td style="text-align: left;">Separate offset by departure period</td>
+<td style="text-align: right;"><strong>0.238</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Model refitted on March</td>
+<td style="text-align: right;"><strong>0.386</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Perfect foresight</td>
+<td style="text-align: right;"><strong>2.383</strong></td>
 </tr>
 </tbody>
 </table>
+<p><strong>These are hindsight-only benchmarks, not validated future improvements.</strong></p>
 <ul>
-<li>A March <strong>hindsight-only</strong> offset adjustment lowered loss by <strong>0.140 weighted min/trip</strong>; it is <strong>not</strong> a validated future improvement</li>
-<li><strong>Next check:</strong> recalibrate on newer ordinary-day data and evaluate on a truly later month</li>
+<li><strong>Cost sensitivity:</strong> If a minute late costs 19 times a minute unused, the rule moves to the <strong>95th percentile</strong>, increasing the average allowance by <strong>7.6 minutes</strong>.</li>
+<li><strong>Next check:</strong> Recalibrate with newer ordinary-day data, then test on a genuinely later month.</li>
 </ul>
-<p><strong>Decision:</strong> prefer the frozen model on held-out decision loss, while clearly disclosing the coverage shortfall.</p>
+<p><strong>Decision:</strong> Prefer the frozen model on held-out decision loss, while disclosing the coverage shortfall.</p>
 
 </section>
     </div>

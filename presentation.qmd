@@ -37,24 +37,43 @@ format:
 
 ## Risk
 
-**The desired 90% coverage was *not* achieved on March ordinary days.**
+**The desired 90% coverage was not achieved on March ordinary days.**
 
-- Actual March model coverage: **82.6%**
-- Coverage from 4–8 p.m.: **75.0%**
-- Least-trusted assumption: travel-time patterns remain stable across months
-- Whole-day resampling reflects related traffic across rides on a day
-- **Do not use as a guarantee** for special events, unexpected disruptions, new routes, or door-to-gate arrival
+- About **17 rides in 100** exceeded the allowance in March, by **8.7 minutes on average when late**.
+- From **4–8 p.m.**, **1 in 4 rides** exceeded the allowance.
+- **Least-trusted assumption:** One February offset fits every hour and carries into March.
+- On **two flagged March days (561 trips)**, coverage fell to **67.4%**, and model loss exceeded the fixed allowance's loss.
+- **Do not use** for flagged days (holidays, announced events, winter storm warnings), other routes, or door-to-gate time.
 
 ## Value
 
-**Less unnecessary padding, under the stated nine-to-one cost ratio.**
+**How much could better predictions reduce decision loss?**
 
-| March ordinary days (per 100 rides) | Quantile model | Fixed allowance |
-|:--|--:|--:|
-| Unused allowance (minutes) | **1,026** | 2,102 |
-| Total late minutes | **151** | 157 |
+| Exploratory March hindsight benchmark | Loss reduction (weighted min/trip) |
+|:--|--:|
+| One offset fitted on March | **0.140** |
+| Separate offset by departure period | **0.238** |
+| Model refitted on March | **0.386** |
+| Perfect foresight | **2.383** |
 
-- A March **hindsight-only** offset adjustment lowered loss by **0.140 weighted min/trip**; it is **not** a validated future improvement
-- **Next check:** recalibrate on newer ordinary-day data and evaluate on a truly later month
+**These are hindsight-only benchmarks, not validated future improvements.**
 
-**Decision:** prefer the frozen model on held-out decision loss, while clearly disclosing the coverage shortfall.
+- **Cost sensitivity:** If a minute late costs 19 times a minute unused, the rule moves to the **95th percentile**, increasing the average allowance by **7.6 minutes**.
+- **Next check:** Recalibrate with newer ordinary-day data, then test on a genuinely later month.
+
+**Decision:** Prefer the frozen model on held-out decision loss, while disclosing the coverage shortfall.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
