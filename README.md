@@ -6,8 +6,7 @@ Follow the [final project lab](https://vsokolov.org/labs/final-project-lab.html)
 
 ## Who
 Praveenbalaji Gopalan (ponyta3),
-Steven Song (stevens0ng),
-Abinash Vasudevan (abinashvasudev)
+Steven Song (stevens0ng)
 
 Alone, or a group of at most three. One person forks. That person adds the other members and `VadimSokolov` as collaborators. On a repository owned by a personal account the role is Write. On the fork, write the names and GitHub usernames under this heading. One person speaks at the presentation. Every member can explain the whole repository.
 
