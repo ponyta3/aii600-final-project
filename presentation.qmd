@@ -39,7 +39,7 @@ format:
 
 **The desired 90% coverage was not achieved on March ordinary days.**
 
-- About **17 rides in 100** exceeded the allowance in March, by **8.7 minutes on average when late**.
+- About **17 rides in 100** exceeded the allowance in March (**82.6% coverage**), by **8.7 minutes on average when late**.
 - From **4–8 p.m.**, **1 in 4 rides** exceeded the allowance.
 - **Least-trusted assumption:** One February offset fits every hour and carries into March.
 - On **two flagged March days (561 trips)**, coverage fell to **67.4%**, and model loss exceeded the fixed allowance's loss.
